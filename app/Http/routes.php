@@ -11,9 +11,26 @@
 |
 */
 
+Route::group( [
+    'prefix'     => LaravelLocalization::setLocale(),
+    'middleware' => [
+        'localeSessionRedirect',
+        'localizationRedirect'
+    ]
+], function(){
+    Route::get( '/', [ 'as' => 'post', 'uses' => 'PostController@index' ] );
+    Route::get( 'unpublished', [ 'as' => 'post.unpublished', 'uses' => 'PostController@unpublished' ] );
 
-Route::get( '/', [ 'as' => 'post', 'uses' => 'PostController@index' ] );
-Route::get( 'unpublished', [ 'as' => 'post.unpublished', 'uses' => 'PostController@unpublished' ] );
+    Route::get( 'post/create', [ 'as' => 'post.create', 'uses' => 'PostController@create' ] );
+    Route::post( 'post', [ 'as' => 'post.store', 'uses' => 'PostController@store' ] );
+    Route::get ( 'post/{post}', [ 'as' => 'post.show', 'uses' => 'PostController@show' ] );
+    Route::get ( 'post/{post}/edit', [ 'as' => 'post.edit', 'uses' => 'PostController@edit' ] );
+    Route::post( 'post/{post}', [ 'as' => 'post.update', 'uses' => 'PostController@update' ] );
+} );
+
+
+//Route::get( '/', [ 'as' => 'post', 'uses' => 'PostController@index' ] );
+//Route::get( 'unpublished', [ 'as' => 'post.unpublished', 'uses' => 'PostController@unpublished' ] );
 
 /*Route::get( 'post/create', [ 'as' => 'post.create', 'uses' => 'PostController@create' ] );
 Route::post( 'post', [ 'as' => 'post.store', 'uses' => 'PostController@store' ] );
@@ -22,4 +39,4 @@ Route::get ( 'post/{post}/edit', [ 'as' => 'post.edit', 'uses' => 'PostControlle
 Route::post( 'post/{post}', [ 'as' => 'post.update', 'uses' => 'PostController@update' ] );*/
 
 
-$router->resource( 'post', 'PostController' );
+//$router->resource( 'post', 'PostController' );
