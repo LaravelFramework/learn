@@ -158,7 +158,9 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
 
-        Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class
+        Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
+
+        Barryvdh\Debugbar\ServiceProvider::class,
     ],
 
     /*
@@ -208,7 +210,9 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
 
-        'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class
+        'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
+
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];
