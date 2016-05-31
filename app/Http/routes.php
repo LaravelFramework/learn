@@ -40,3 +40,6 @@ Route::post( 'post/{post}', [ 'as' => 'post.update', 'uses' => 'PostController@u
 
 
 //$router->resource( 'post', 'PostController' );
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
