@@ -56,3 +56,17 @@ $response = $kernel->handle(
 $response->send();
 
 $kernel->terminate($request, $response);
+
+
+/** Ниже расположены глобальные функции */
+
+
+/**
+ * Получение префикса текущего языка
+ *
+ * @return string
+ */
+function lang()
+{
+    return "_" . LaravelLocalization::getCurrentLocale();
+}

@@ -9,7 +9,7 @@
 
     @foreach( $posts as $post )
         <h2>{{ $post->title }}</h2>
-        <p>{!! $post->excerpt  !!}</p>
+        <p>{!! $post->{ 'content' . lang() } !!}</p>
         <p>{{ $post->published_at }}</p>
     @endforeach
 @stop
