@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "laravelcollective/html": "~5.2",
         "mcamara/laravel-localization": "1.1.*",
-        "barryvdh/laravel-debugbar": "2.*"
+        "barryvdh/laravel-debugbar": "2.*",
+        "barryvdh/laravel-ide-helper" : "2.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -44,6 +45,7 @@
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "php artisan ide-helper:generate",
             "php artisan optimize"
         ]
     },
